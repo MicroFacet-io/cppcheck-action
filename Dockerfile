@@ -1,4 +1,3 @@
-FROM neszt/cppcheck-docker:2.9
-RUN apk add --no-cache python3
+FROM facthunder/cppcheck
 ADD ./src/entrypoint.py /entrypoint.py
-ENTRYPOINT ["python3", "/entrypoint.py"]
+ENTRYPOINT ["python", "/entrypoint.py"]

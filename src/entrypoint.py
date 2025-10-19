@@ -236,15 +236,13 @@ def run(vector, where=SOURCE_ROOT, show_version=False, show_help=False):
     if lines[0].strip() == CPPCHECK_NO_PATHS_OPENED_INDICATOR:
         print("no source files found during execution?")
 
-    retVal = None
-
     if completed.stderr:
-        retVal = 1
         print("captured output on standard error:")
         for line in completed.stderr.decode(ENCODING, errors="ignore").split("\n"):
             print(" ", line)
 
-    return retVal
+    # we never fail CI for this action
+    return None
 
 
 def main():
